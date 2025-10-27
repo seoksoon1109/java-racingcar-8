@@ -29,4 +29,19 @@ public class InputValidator {
             }
         }
     }
+
+    public static void validateTryCount(String input) {
+        if (input == null || input.isBlank()) {
+            throw new IllegalArgumentException("시도 횟수를 입력해야 합니다.");
+        }
+
+        try {
+            int count = Integer.parseInt(input);
+            if (count < 1) {
+                throw new IllegalArgumentException("시도 횟수는 1 이상이여야 합니다.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        }
+    }
 }
