@@ -12,10 +12,14 @@ public class Car {
     }
 
     public void move() {
-        int randomValue = Randoms.pickNumberInRange(0, 9);
+        int randomValue = generateRandomValue();
         if (randomValue >= MOVE_THRESHOLD) {
             position++;
         }
+    }
+
+    protected int generateRandomValue() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public String getName() {
